@@ -35,7 +35,7 @@ export class BubbleSort {
           await sleep(this.speed);
 
           this.visualizer.setArray([...array]);
-          this.visualizer.render();
+          this.visualizer.render(true);
           await sleep(this.speed);
         }
 
@@ -44,19 +44,19 @@ export class BubbleSort {
 
       this.visualizer.updateBarState(n - i - 1, BAR_STATES.SORTED);
 
-      if (!swapped) {
-        for (let k = 0; k < n - i; k++) {
-          this.visualizer.updateBarState(k, BAR_STATES.SORTED);
+        if (!swapped) {
+          for (let k = 0; k < n - i; k++) {
+            this.visualizer.updateBarState(k, BAR_STATES.SORTED);
+          }
+          this.visualizer.render(true);
+          break;
         }
-        this.visualizer.render();
-        break;
       }
-    }
 
-    for (let i = 0; i < n; i++) {
-      this.visualizer.updateBarState(i, BAR_STATES.SORTED);
-    }
-    this.visualizer.render();
+      for (let i = 0; i < n; i++) {
+        this.visualizer.updateBarState(i, BAR_STATES.SORTED);
+      }
+      this.visualizer.render(true);
   }
 
   stop() {
@@ -112,7 +112,7 @@ export class SelectionSort {
         await sleep(this.speed);
 
         this.visualizer.setArray([...array]);
-        this.visualizer.render();
+        this.visualizer.render(true);
         await sleep(this.speed);
       }
 
@@ -121,7 +121,7 @@ export class SelectionSort {
     }
 
     this.visualizer.updateBarState(n - 1, BAR_STATES.SORTED);
-    this.visualizer.render();
+    this.visualizer.render(true);
   }
 
   stop() {
@@ -169,7 +169,7 @@ export class InsertionSort {
         await sleep(this.speed);
 
         this.visualizer.setArray([...array]);
-        this.visualizer.render();
+        this.visualizer.render(true);
         await sleep(this.speed);
 
         this.visualizer.clearComparingStates();
@@ -178,7 +178,7 @@ export class InsertionSort {
 
       array[j + 1] = key;
       this.visualizer.setArray([...array]);
-      this.visualizer.render();
+      this.visualizer.render(true);
 
       this.visualizer.clearComparingStates();
       this.visualizer.updateBarState(j + 1, BAR_STATES.SORTED);
@@ -188,7 +188,7 @@ export class InsertionSort {
     for (let i = 0; i < n; i++) {
       this.visualizer.updateBarState(i, BAR_STATES.SORTED);
     }
-    this.visualizer.render();
+    this.visualizer.render(true);
   }
 
   stop() {
