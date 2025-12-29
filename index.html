@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🔀 Sorting Algorithm Visualizer</h1>
+        <p style="color: #b0b0b0">Visualize sorting algorithms in real-time</p>
+      </div>
+
+      <div class="controls">
+        <div class="control-group">
+          <label>Array Size</label>
+          <button id="generateBtn">Generate New Array</button>
+        </div>
+        <div class="control-group">
+          <label>Speed Control</label>
+          <input type="range" id="speedSlider" min="1" max="100" value="50" />
+          <div class="speed-value" id="speedValue">50ms</div>
+        </div>
+        <div class="control-group">
+          <label>Algorithm</label>
+          <select id="algorithmSelect">
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="insertion">Insertion Sort</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Actions</label>
+          <button id="startBtn">Start Sorting</button>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color default"></div>
+          <span>Default</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color comparing"></div>
+          <span>Comparing</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color swapping"></div>
+          <span>Swapping</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color sorted"></div>
+          <span>Sorted</span>
+        </div>
+      </div>
+
+      <div class="visualization-area" id="visualizationArea">
+        <div class="stats-overlay">
+          <h3>Live Stats</h3>
+          <div class="stat-item">
+            <span class="stat-label">Comparisons:</span>
+            <span class="stat-value" id="comparisonsCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Swaps:</span>
+            <span class="stat-value" id="swapsCount">0</span>
+          </div>
+          <div class="complexity">
+            <div class="complexity-label">Time Complexity:</div>
+            <div class="complexity-value" id="timeComplexity">O(n²)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-o-section">
+        <h2>Big O Complexity Cheat Sheet</h2>
+        <div class="big-o-grid">
+          <div class="big-o-card">
+            <h3>Bubble Sort</h3>
+            <p style="color: #b0b0b0; margin-bottom: 10px">
+              Repeatedly steps through the list, compares adjacent elements and
+              swaps them if they are in the wrong order.
+            </p>
+            <div class="complexity">
+              <div class="complexity-label">Best Case:</div>
+              <div class="complexity-value">O(n)</div>
+              <div class="complexity-label" style="margin-top: 8px">
+                Average Case:
+              </div>
+              <div class="complexity-value">O(n²)</div>
+              <div class="complexity-label" style="margin-top: 8px">
+                Worst Case:
+              </div>
+              <div class="complexity-value">O(n²)</div>
+            </div>
+          </div>
+          <div class="big-o-card">
+            <h3>Selection Sort</h3>
+            <p style="color: #b0b0b0; margin-bottom: 10px">
+              Finds the minimum element from the unsorted portion and places it
+              at the beginning.
+            </p>
+            <div class="complexity">
+              <div class="complexity-label">Best Case:</div>
+              <div class="complexity-value">O(n²)</div>
+              <div class="complexity-label" style="margin-top: 8px">
+                Average Case:
+              </div>
+              <div class="complexity-value">O(n²)</div>
+              <div class="complexity-label" style="margin-top: 8px">
+                Worst Case:
+              </div>
+              <div class="complexity-value">O(n²)</div>
+            </div>
+          </div>
+          <div class="big-o-card">
+            <h3>Insertion Sort</h3>
+            <p style="color: #b0b0b0; margin-bottom: 10px">
+              Builds the sorted array one element at a time by inserting each
+              element into its correct position.
+            </p>
+            <div class="complexity">
+              <div class="complexity-label">Best Case:</div>
+              <div class="complexity-value">O(n)</div>
+              <div class="complexity-label" style="margin-top: 8px">
+                Average Case:
+              </div>
+              <div class="complexity-value">O(n²)</div>
+              <div class="complexity-label" style="margin-top: 8px">
+                Worst Case:
+              </div>
+              <div class="complexity-value">O(n²)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
